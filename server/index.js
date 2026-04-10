@@ -100,6 +100,14 @@ app.use(cors({
 }));
 app.use(express.json());
 
+// 强制不缓存（开发环境）
+app.use((req, res, next) => {
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+  next();
+});
+
 // 静态文件 - 已构建的前端
 app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
 
