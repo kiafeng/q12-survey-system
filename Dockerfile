@@ -2,26 +2,15 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# 复制 package 文件
-COPY package*.json ./
-COPY client/package*.json ./client/
-COPY client/vite.config.js ./client/
-
-# 安装根目录依赖
-RUN npm install
-
-# 安装 client 依赖（包含 vite）
-WORKDIR /app/client
-RUN npm install
-
-# 返回工作目录
-WORKDIR /app
-
-# 复制源代码
+# 复制所有文件
 COPY . .
 
-# 创建数据目录
-RUN mkdir -p /app/data
+# 安装依赖
+RUN npm install
+
+# 安装 client 依赖
+WORKDIR /app/client
+RUN npm install
 
 # 构建前端
 WORKDIR /app/client
@@ -33,8 +22,5 @@ WORKDIR /app
 # 暴露端口
 EXPOSE 3001
 
-# 健康检查
-HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 CMD node -e "require('http').get('http://localhost:' + (process.env.PORT || 3001), (r) => process.exit(r.statusCode === 200 ? 0 : 1))"
-
 # 启动服务
-CMD ["node", "server/index.js"]
+CMD ["npm", "start"]
