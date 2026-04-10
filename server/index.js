@@ -90,7 +90,7 @@ if (!store.data.users.find(u => u.username === 'admin')) {
 }
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 80;
 const JWT_SECRET = process.env.JWT_SECRET || 'q12-survey-secret-key-2024';
 
 app.use(cors({
@@ -120,6 +120,11 @@ if (fs.existsSync(assetsPath)) {
   console.log('assets目录内容:', fs.readdirSync(assetsPath));
 }
 app.use(express.static(distPath));
+
+// 健康检查 - CloudBase 需要
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
 
 // 认证中间件
 function authMiddleware(req, res, next) {

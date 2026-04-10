@@ -33,7 +33,13 @@ const AdminLogin = () => {
         </span>
       ),
       children: (
-        <>
+        <Form
+          name="login"
+          onFinish={onFinish}
+          autoComplete="off"
+          layout="vertical"
+          initialValues={{ username: 'admin', password: 'admin123' }}
+        >
           <Form.Item
             name="username"
             rules={[{ required: true, message: '请输入用户名' }]}
@@ -68,7 +74,7 @@ const AdminLogin = () => {
               登 录
             </Button>
           </Form.Item>
-        </>
+        </Form>
       )
     },
     {
@@ -247,18 +253,6 @@ const AdminLogin = () => {
             centered
             style={{ marginBottom: 24 }}
           />
-
-          {activeTab === 'admin' && (
-            <Form
-              name="login"
-              onFinish={onFinish}
-              autoComplete="off"
-              layout="vertical"
-              initialValues={{ username: 'admin', password: 'admin123' }}
-            >
-              {/* 表单项由 tabItems 渲染 */}
-            </Form>
-          )}
 
           {/* 底部提示 */}
           {activeTab === 'admin' && (
