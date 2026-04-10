@@ -2,24 +2,26 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Form, Input, Button, Card, message, Tabs } from 'antd'
 import { UserOutlined, LockOutlined, TeamOutlined, SafetyOutlined } from '@ant-design/icons'
-import { apiAuth } from '../utils/api'
+import { apiPost } from '../utils/api'
 
 const AdminLogin = () => {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [activeTab, setActiveTab] = useState('admin')
 
-  const onFinish = (values) => {
+  const onFinish = async (values) => {
     setLoading(true)
-    const result = apiAuth.login(values.username, values.password)
-    if (result.success) {
-      localStorage.setItem('user', JSON.stringify(result.user))
+    try {
+      const data = await apiPost('/api/auth/login', values)
+      localStorage.setItem('token', data.token)
+      localStorage.setItem('user', JSON.stringify(data.user))
       message.success('登录成功')
       navigate('/admin')
-    } else {
-      message.error(result.error)
+    } catch (err) {
+      message.error(err.message)
+    } finally {
+      setLoading(false)
     }
-    setLoading(false)
   }
 
   const tabItems = [
@@ -151,11 +153,10 @@ const AdminLogin = () => {
         transform: 'translateY(-50%)',
         color: 'white',
         maxWidth: 400,
-        display: 'none'  // 隐藏左侧区域，留给IP形象
+        display: 'none'
       }}
         className="brand-section"
       >
-        {/* 使用背景图方式，不拉伸 */}
         <div style={{
           width: 200,
           height: 200,
@@ -206,7 +207,6 @@ const AdminLogin = () => {
           textAlign: 'center',
           position: 'relative'
         }}>
-          {/* IP形象区域 - 去掉白色边框，直接显示圆形图片 */}
           <div style={{
             width: 100,
             height: 100,

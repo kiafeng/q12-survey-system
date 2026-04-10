@@ -11,7 +11,6 @@ import {
   MenuUnfoldOutlined,
   FileTextOutlined
 } from '@ant-design/icons'
-import { getCurrentUser } from '../utils/api'
 
 const { Header, Sider, Content } = Layout
 
@@ -21,9 +20,9 @@ const AdminLayout = () => {
   const [user, setUser] = useState(null)
 
   useEffect(() => {
-    const currentUser = getCurrentUser()
+    const token = localStorage.getItem('token')
     const userStr = localStorage.getItem('user')
-    if (!currentUser) {
+    if (!token) {
       navigate('/admin/login')
       return
     }
@@ -33,7 +32,7 @@ const AdminLayout = () => {
   }, [navigate])
 
   const handleLogout = () => {
-    localStorage.removeItem('q12_token')
+    localStorage.removeItem('token')
     localStorage.removeItem('user')
     message.success('已退出登录')
     navigate('/admin/login')
