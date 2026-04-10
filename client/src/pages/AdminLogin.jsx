@@ -2,26 +2,24 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Form, Input, Button, Card, message, Tabs } from 'antd'
 import { UserOutlined, LockOutlined, TeamOutlined, SafetyOutlined } from '@ant-design/icons'
-import { apiPost } from '../utils/api'
+import { apiAuth } from '../utils/api'
 
 const AdminLogin = () => {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [activeTab, setActiveTab] = useState('admin')
 
-  const onFinish = async (values) => {
+  const onFinish = (values) => {
     setLoading(true)
-    try {
-      const data = await apiPost('/auth/login', values)
-      localStorage.setItem('token', data.token)
-      localStorage.setItem('user', JSON.stringify(data.user))
+    const result = apiAuth.login(values.username, values.password)
+    if (result.success) {
+      localStorage.setItem('user', JSON.stringify(result.user))
       message.success('登录成功')
       navigate('/admin')
-    } catch (err) {
-      message.error(err.message)
-    } finally {
-      setLoading(false)
+    } else {
+      message.error(result.error)
     }
+    setLoading(false)
   }
 
   const tabItems = [
