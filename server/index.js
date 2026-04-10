@@ -109,7 +109,13 @@ app.use((req, res, next) => {
 });
 
 // 静态文件 - 已构建的前端
-app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
+const distPath = path.join(__dirname, '..', 'client', 'dist');
+console.log('静态文件目录:', distPath);
+console.log('目录是否存在:', fs.existsSync(distPath));
+if (fs.existsSync(distPath)) {
+  console.log('目录内容:', fs.readdirSync(distPath));
+}
+app.use(express.static(distPath));
 
 // 认证中间件
 function authMiddleware(req, res, next) {
