@@ -1,4 +1,4 @@
-# Q12调研系统 - 简化版
+# Q12调研系统 - 强制重新构建 2026-04-10-17-45
 FROM node:18-alpine
 
 WORKDIR /app
@@ -6,14 +6,14 @@ WORKDIR /app
 # 复制 package 文件
 COPY package*.json ./
 
-# 只安装生产依赖（不含 devDependencies）
+# 只安装生产依赖
 RUN npm install --production
 
 # 复制 server 代码
 COPY server ./server
 COPY data ./data
 
-# 复制已构建的前端（由 GitHub Actions 或本地构建）
+# 复制前端构建文件
 COPY client/dist ./client/dist
 
 # 暴露端口
