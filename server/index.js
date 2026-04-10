@@ -68,8 +68,14 @@ const DIMENSIONS = {
   '同事质量': ['q9'], '人际关系': ['q10'], '进步反馈': ['q11'], '学习成长': ['q12']
 };
 
-const { nanoid } = require('nanoid');
-const generateSurveyToken = () => nanoid(12);
+const generateSurveyToken = () => {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let token = '';
+  for (let i = 0; i < 12; i++) {
+    token += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return token;
+};
 
 // 创建默认管理员
 if (!store.data.users.find(u => u.username === 'admin')) {
