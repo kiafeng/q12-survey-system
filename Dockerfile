@@ -20,6 +20,9 @@ WORKDIR /app
 # 复制源代码
 COPY . .
 
+# 创建数据目录
+RUN mkdir -p /app/data
+
 # 构建前端
 WORKDIR /app/client
 RUN npm run build
@@ -29,6 +32,9 @@ WORKDIR /app
 
 # 暴露端口
 EXPOSE 3001
+
+# 健康检查
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 CMD node -e "require('http').get('http://localhost:' + (process.env.PORT || 3001), (r) => process.exit(r.statusCode === 200 ? 0 : 1))"
 
 # 启动服务
 CMD ["node", "server/index.js"]
