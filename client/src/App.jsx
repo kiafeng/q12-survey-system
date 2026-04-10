@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { ConfigProvider } from 'antd'
 import zhCN from 'antd/locale/zh_CN'
 import SurveyPage from './pages/SurveyPage'
@@ -25,6 +25,7 @@ function App() {
     <ConfigProvider theme={theme} locale={zhCN}>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Navigate to="/admin" replace />} />
           <Route path="/survey/:token" element={<SurveyPage />} />
           <Route path="/thank-you" element={<ThankYouPage />} />
           <Route path="/admin/login" element={<AdminLogin />} />
