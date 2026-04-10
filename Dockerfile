@@ -2,15 +2,24 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# 复制所有文件
-COPY . .
+# 先复制 package 文件
+COPY package*.json ./
 
 # 安装依赖
 RUN npm install
 
+# 复制 client package 文件
+COPY client/package*.json ./client/
+
 # 安装 client 依赖
 WORKDIR /app/client
 RUN npm install
+
+# 复制源代码
+COPY . .
+
+# 清理旧的构建文件
+RUN rm -rf dist
 
 # 构建前端
 WORKDIR /app/client
@@ -20,7 +29,8 @@ RUN npm run build
 WORKDIR /app
 
 # 暴露端口
+ENV PORT=3001
 EXPOSE 3001
 
 # 启动服务
-CMD ["npm", "start"]
+CMD ["node", "server/index.js"]
