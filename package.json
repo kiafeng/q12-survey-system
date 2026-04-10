@@ -9,8 +9,7 @@
     "client": "cd client && npm run dev",
     "build": "cd client && npm install && npm run build",
     "start": "NODE_ENV=production node server/index.js",
-    "setup": "npm install && cd client && npm install",
-    "postinstall": "cd client && npm install"
+    "setup": "npm install && cd client && npm install"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
