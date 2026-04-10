@@ -4,7 +4,7 @@ providers = ["node"]
 nixpkgs = ["nodejs_20"]
 
 [phases.install]
-cmds = ["npm install", "cd client && npm install"]
+cmds = ["npm install --include=dev", "cd client && npm install --include=dev"]
 
 [phases.build]
 cmds = ["cd client && npm run build"]
