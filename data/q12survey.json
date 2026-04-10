@@ -1,0 +1,191 @@
+{
+  "departments": [
+    {
+      "id": "d1984fba-b5af-4ba4-a2cb-a930d88dda75",
+      "name": "个人事业部",
+      "code": "HD1",
+      "parent_id": null,
+      "level": 1,
+      "survey_token": "ssNl6q7Fjkv4",
+      "manager_id": null,
+      "status": 1,
+      "created_at": "2026-04-09T10:22:51.599Z"
+    },
+    {
+      "id": "456860fc-70ca-4355-8b7a-b966e94897b1",
+      "name": "职能平台",
+      "code": "HB1",
+      "parent_id": null,
+      "level": 1,
+      "survey_token": "q_i4KPNcXi04",
+      "manager_id": null,
+      "status": 1,
+      "created_at": "2026-04-09T10:22:51.600Z"
+    },
+    {
+      "id": "7957c529-e0a2-4663-b5e9-4398f80a4fb2",
+      "name": "人力中心",
+      "code": "HB1-1",
+      "parent_id": "456860fc-70ca-4355-8b7a-b966e94897b1",
+      "level": 2,
+      "survey_token": "vO3lH0CSjfb1",
+      "manager_id": null,
+      "status": 1,
+      "created_at": "2026-04-09T10:22:51.600Z"
+    },
+    {
+      "id": "e5f6a7b8-c9d0-1234-efab-567890123456",
+      "name": "企业文化中心",
+      "code": "HB1-1-1",
+      "parent_id": "7957c529-e0a2-4663-b5e9-4398f80a4fb2",
+      "level": 3,
+      "survey_token": "tEchRdTok3n12",
+      "manager_id": null,
+      "status": 1,
+      "created_at": "2026-04-09T10:22:51.600Z"
+    },
+    {
+      "id": "9434f5c0-a695-469a-87ee-9b01e7aa0fda",
+      "name": "Office事业部",
+      "code": "OF1",
+      "parent_id": null,
+      "level": 1,
+      "survey_token": "mRpgLARmosIC",
+      "manager_id": null,
+      "status": 1,
+      "created_at": "2026-04-10T01:47:18.738Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "a1b2c3d4-e5f6-4a5b-8c9d-e0f1a2b3c4d5",
+      "username": "admin",
+      "password_hash": "$2a$10$4bVYQT.aPxN4hnxifdAmke2lTG9Kq/wLZUaiKp2XAV6KpKLESoGlm",
+      "real_name": "系统管理员",
+      "role": 1,
+      "department_id": null,
+      "status": 1,
+      "created_at": "2026-04-09T10:22:51.600Z"
+    },
+    {
+      "id": "b2c3d4e5-f6a7-4b5c-9d0e-f1a2b3c4d5e6",
+      "username": "manager_hd",
+      "password_hash": "$2a$10$2Uotheq.gZO419xTCzXbtOihPJSqsue/zgiWy5kZhf/rZ6MhYvtna",
+      "real_name": "王韵涵",
+      "role": 2,
+      "department_id": "d1984fba-b5af-4ba4-a2cb-a930d88dda75",
+      "status": 1,
+      "created_at": "2026-04-09T10:22:51.600Z"
+    },
+    {
+      "id": "256035a1-2cd2-4cf2-8fc4-125e4f0ab82b",
+      "username": "liliyuan",
+      "password_hash": "$2a$10$wAsjgy9FVIFHnGltINYwEewV/k5vysZPncA99jIN9APgM53NpEgPy",
+      "real_name": "李黎源",
+      "role": 2,
+      "department_id": "e5f6a7b8-c9d0-1234-efab-567890123456",
+      "status": 1,
+      "created_at": "2026-04-10T01:54:30.471Z"
+    },
+    {
+      "id": "0b6a4633-0e45-4311-8309-5524312e35b8",
+      "username": "pangxiong",
+      "password_hash": "$2a$10$ygn7NtNP.T4yTPRlkokIMuX8dsY2q5ZuNW68OvvhzDchq7ddz4/0.",
+      "real_name": "庞雄",
+      "role": 2,
+      "department_id": "456860fc-70ca-4355-8b7a-b966e94897b1",
+      "status": 1,
+      "created_at": "2026-04-10T01:55:15.324Z"
+    },
+    {
+      "id": "7e14be43-e309-4b02-a3b3-bb5dc2f0cfb8",
+      "username": "cuicui",
+      "password_hash": "$2a$10$XkKqJwZFDZybke9dAof02.lwubfNRkYmdcfjHnVZNnonAO/3L3GfG",
+      "real_name": "崔铮",
+      "role": 2,
+      "department_id": "9434f5c0-a695-469a-87ee-9b01e7aa0fda",
+      "status": 1,
+      "created_at": "2026-04-10T01:57:01.529Z"
+    }
+  ],
+  "surveys": [
+    {
+      "id": "a095c143-2a07-4fe3-af49-7d4c53e01738",
+      "department_id": "d1984fba-b5af-4ba4-a2cb-a930d88dda75",
+      "answers": "{\"q1\":8,\"q2\":7,\"q3\":8,\"q4\":6,\"q5\":7,\"q6\":7,\"q7\":8,\"q8\":9,\"q9\":8,\"q10\":7,\"q11\":6,\"q12\":7}",
+      "ip_hash": "ab54a5cf83f67d827ecba68e394f9196",
+      "submitted_at": "2026-04-10T02:29:25.608Z"
+    },
+    {
+      "id": "815e7857-2f2f-49b5-8e33-ff0df437269a",
+      "questionnaire_id": "62558ce2-9781-4d5a-b92f-3a8a1cf2555a",
+      "department_id": "d1984fba-b5af-4ba4-a2cb-a930d88dda75",
+      "answers": "{\"q1\":9,\"q2\":8,\"q3\":7,\"q4\":7,\"q5\":9,\"q7\":9,\"q6\":9,\"q8\":3,\"q9\":3,\"q10\":1,\"q11\":1,\"q12\":1}",
+      "ip_hash": "837ec5754f503cfaaee0929fd48974e7",
+      "submitted_at": "2026-04-10T02:55:57.568Z"
+    },
+    {
+      "id": "d7e52cda-7617-4340-8694-7097825d1f32",
+      "questionnaire_id": "62558ce2-9781-4d5a-b92f-3a8a1cf2555a",
+      "department_id": "d1984fba-b5af-4ba4-a2cb-a930d88dda75",
+      "answers": "{\"q1\":9,\"q2\":7,\"q3\":7,\"q5\":8,\"q4\":9,\"q6\":7,\"q7\":7,\"q9\":9,\"q10\":9,\"q8\":5,\"q11\":5,\"q12\":5}",
+      "ip_hash": "ab54a5cf83f67d827ecba68e394f9196",
+      "device_id": "8e87b97741158e99de4075a870168b87",
+      "submitted_at": "2026-04-10T03:00:21.115Z"
+    },
+    {
+      "id": "01702b7e-7e6f-432d-8e8c-74a16d41d93e",
+      "questionnaire_id": "cbad0d7f-783f-4877-88e2-9d94a00f4120",
+      "department_id": "d1984fba-b5af-4ba4-a2cb-a930d88dda75",
+      "answers": "{\"q1\":10,\"q2\":9,\"q3\":1,\"q4\":1,\"q5\":9,\"q6\":9,\"q7\":8,\"q8\":8,\"q9\":8,\"q11\":2,\"q12\":2,\"q10\":8}",
+      "ip_hash": "ab54a5cf83f67d827ecba68e394f9196",
+      "device_id": "8e87b97741158e99de4075a870168b87",
+      "submitted_at": "2026-04-10T03:15:23.527Z"
+    },
+    {
+      "id": "c7e63c69-9254-4ffc-b13d-6c2dd52def40",
+      "questionnaire_id": "0bcd3cd9-c72a-4817-8fc5-9a760d8a28e1",
+      "department_id": "456860fc-70ca-4355-8b7a-b966e94897b1",
+      "answers": "{\"q1\":6,\"q2\":6,\"q3\":8,\"q5\":6,\"q6\":5,\"q8\":1,\"q9\":1,\"q10\":10,\"q11\":10,\"q12\":10,\"q7\":9,\"q4\":9}",
+      "ip_hash": "ab54a5cf83f67d827ecba68e394f9196",
+      "device_id": "8e87b97741158e99de4075a870168b87",
+      "submitted_at": "2026-04-10T03:31:33.900Z"
+    }
+  ],
+  "analysis_reports": [],
+  "questionnaires": [
+    {
+      "id": "62558ce2-9781-4d5a-b92f-3a8a1cf2555a",
+      "department_id": "d1984fba-b5af-4ba4-a2cb-a930d88dda75",
+      "title": "2026年度Q1个人事业部组织氛围调研",
+      "token": "hGyJJfCrhjHx",
+      "start_date": "2026-04-10",
+      "end_date": "2026-04-18",
+      "status": 3,
+      "created_by": "b2c3d4e5-f6a7-4b5c-9d0e-f1a2b3c4d5e6",
+      "created_at": "2026-04-10T02:50:35.657Z"
+    },
+    {
+      "id": "cbad0d7f-783f-4877-88e2-9d94a00f4120",
+      "department_id": "d1984fba-b5af-4ba4-a2cb-a930d88dda75",
+      "title": "2026年度Q1个人事业部组织氛围调研-2",
+      "token": "Wc5GOTCace4E",
+      "start_date": "2026-04-10",
+      "end_date": "2026-04-18",
+      "status": 3,
+      "created_by": "b2c3d4e5-f6a7-4b5c-9d0e-f1a2b3c4d5e6",
+      "created_at": "2026-04-10T03:07:21.410Z"
+    },
+    {
+      "id": "0bcd3cd9-c72a-4817-8fc5-9a760d8a28e1",
+      "department_id": "456860fc-70ca-4355-8b7a-b966e94897b1",
+      "title": "2026年度Q1职能平台组织氛围调研",
+      "token": "Qxai85EUtZoX",
+      "start_date": "2026-04-10",
+      "end_date": "2026-04-18",
+      "status": 2,
+      "created_by": "0b6a4633-0e45-4311-8309-5524312e35b8",
+      "created_at": "2026-04-10T03:31:12.322Z"
+    }
+  ]
+}
