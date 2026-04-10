@@ -1,7 +1,0 @@
-{
-  "build": {
-    "builder": "NIXPACKS",
-    "buildCommand": "cd client && npm install && npm run build",
-    "startCommand": "npm start"
-  }
-}
