@@ -1,7 +1,7 @@
 [railway]
   [railway.build]
     builder = "NIXPACKS"
-    buildCommand = "npm install && cd client && npm install && npm run build"
+    buildCommand = "npm install && cd client && npm install && npx vite build"
 
   [railway.deploy]
     startCommand = "node server/index.js"
