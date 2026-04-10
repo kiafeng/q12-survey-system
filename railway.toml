@@ -1,9 +1,0 @@
-[railway]
-  [railway.build]
-    builder = "NIXPACKS"
-    buildCommand = "npm install && cd client && npm install && npx vite build"
-
-  [railway.deploy]
-    startCommand = "node server/index.js"
-    restartPolicyType = "ON_FAILURE"
-    restartPolicyMaxRetries = 10
