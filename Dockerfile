@@ -1,5 +1,6 @@
 FROM node:18-alpine
 
+# 强制重新构建时间戳: 2026-04-10-16-05
 WORKDIR /app
 
 # 先复制 package 文件
