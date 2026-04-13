@@ -94,7 +94,7 @@ const QuestionnaireManager = () => {
 
   const handleDelete = async (id) => {
     try {
-      await apiDelete(`/questionnaires/${id}`)
+      await apiDelete(`/api/questionnaires/${id}`)
       message.success('删除成功')
       loadData()
     } catch (err) {
@@ -104,7 +104,7 @@ const QuestionnaireManager = () => {
 
   const handleStart = async (record) => {
     try {
-      await apiPut(`/questionnaires/${record.id}`, { status: 2 })
+      await apiPut(`/api/questionnaires/${record.id}`, { status: 2 })
       message.success('问卷已开始收集')
       loadData()
     } catch (err) {
@@ -114,7 +114,7 @@ const QuestionnaireManager = () => {
 
   const handleStop = async (record) => {
     try {
-      await apiPut(`/questionnaires/${record.id}`, { status: 3 })
+      await apiPut(`/api/questionnaires/${record.id}`, { status: 3 })
       message.success('问卷已结束')
       loadData()
     } catch (err) {
@@ -124,7 +124,7 @@ const QuestionnaireManager = () => {
 
   const handleRegenerateLink = async (record) => {
     try {
-      const res = await apiPost(`/questionnaires/${record.id}/regenerate-token`)
+      const res = await apiPost(`/api/questionnaires/${record.id}/regenerate-token`)
       message.success('链接已重置')
       loadData()
     } catch (err) {
@@ -144,7 +144,7 @@ const QuestionnaireManager = () => {
       }
 
       if (editingQ) {
-        await apiPut(`/questionnaires/${editingQ.id}`, data)
+        await apiPut(`/api/questionnaires/${editingQ.id}`, data)
         message.success('更新成功')
       } else {
         await apiPost('/api/questionnaires', data)
