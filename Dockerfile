@@ -1,4 +1,4 @@
-# Q12调研系统 - 在 Railway 构建前端
+# Q12调研系统 - 腾讯云 CloudBase 部署
 FROM node:18-alpine
 
 WORKDIR /app
@@ -13,7 +13,7 @@ RUN npm install --production
 RUN cd client && npm install && npm run build
 
 # 暴露端口
-EXPOSE 8080
-ENV PORT=8080
+EXPOSE 3001
+ENV PORT=3001
 
 CMD ["node", "server/index.js"]

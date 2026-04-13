@@ -90,7 +90,7 @@ if (!store.data.users.find(u => u.username === 'admin')) {
 }
 
 const app = express();
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 3001;
 const JWT_SECRET = process.env.JWT_SECRET || 'q12-survey-secret-key-2024';
 
 app.use(cors({

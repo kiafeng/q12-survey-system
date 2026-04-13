@@ -56,8 +56,8 @@ const QuestionnaireManager = () => {
     setLoading(true)
     try {
       const [qRes, dRes] = await Promise.all([
-        apiGet('/questionnaires'),
-        apiGet('/departments')
+        apiGet('/api/questionnaires'),
+        apiGet('/api/departments')
       ])
       setQuestionnaires(qRes.questionnaires)
       setDepartments(dRes.departments)
@@ -147,7 +147,7 @@ const QuestionnaireManager = () => {
         await apiPut(`/questionnaires/${editingQ.id}`, data)
         message.success('更新成功')
       } else {
-        await apiPost('/questionnaires', data)
+        await apiPost('/api/questionnaires', data)
         message.success('创建成功')
       }
       setModalVisible(false)

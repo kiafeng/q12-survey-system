@@ -16,9 +16,9 @@ const AdminDashboard = () => {
   const loadData = async () => {
     try {
       const [overviewRes, rankingRes, dimensionRes] = await Promise.all([
-        apiGet('/stats/overview'),
-        apiGet('/stats/department-ranking'),
-        apiGet('/stats/dimensions')
+        apiGet('/api/stats/overview'),
+        apiGet('/api/stats/department-ranking'),
+        apiGet('/api/stats/dimensions')
       ])
       setStats(overviewRes.stats)
       setRankings(rankingRes.rankings)

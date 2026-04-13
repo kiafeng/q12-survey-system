@@ -25,8 +25,8 @@ const AdminUsers = () => {
     setLoading(true)
     try {
       const [userRes, deptRes] = await Promise.all([
-        apiGet('/users'),
-        apiGet('/departments')
+        apiGet('/api/users'),
+        apiGet('/api/departments')
       ])
       setUsers(userRes.users)
       setDepartments(deptRes.departments)
@@ -77,7 +77,7 @@ const AdminUsers = () => {
         await apiPut(`/users/${editingUser.id}`, values)
         message.success('更新成功')
       } else {
-        await apiPost('/users', {
+        await apiPost('/api/users', {
           username: values.username,
           password: values.password,
           realName: values.realName,

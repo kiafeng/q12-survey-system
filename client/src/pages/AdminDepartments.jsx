@@ -26,11 +26,11 @@ const AdminDepartments = () => {
   const loadData = async () => {
     setLoading(true)
     try {
-      const deptRes = await apiGet('/departments')
+      const deptRes = await apiGet('/api/departments')
       setDepartments(deptRes.departments)
 
       if (isAdmin) {
-        const userRes = await apiGet('/users')
+        const userRes = await apiGet('/api/users')
         setUsers(userRes.users.filter(u => u.role === 2))
       }
     } catch (err) {
@@ -76,7 +76,7 @@ const AdminDepartments = () => {
         await apiPut(`/departments/${editingDept.id}`, values)
         message.success('更新成功')
       } else {
-        await apiPost('/departments', values)
+        await apiPost('/api/departments', values)
         message.success('创建成功')
       }
       setModalVisible(false)

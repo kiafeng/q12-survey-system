@@ -25,7 +25,7 @@ const AdminAnalysis = () => {
 
   const loadDepartments = async () => {
     try {
-      const res = await apiGet('/departments')
+      const res = await apiGet('/api/departments')
       setDepartments(res.departments)
     } catch (err) {
       console.error(err)
@@ -34,7 +34,7 @@ const AdminAnalysis = () => {
 
   const loadQuestionnaires = async () => {
     try {
-      const res = await apiGet('/questionnaires')
+      const res = await apiGet('/api/questionnaires')
       // 显示所有有数据的问卷（草稿、收集中、已结束都可以看）
       // 但分析功能只对有数据的问卷有效
       setQuestionnaires(res.questionnaires)
